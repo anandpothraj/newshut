@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar */
+
+.header{
+    width: 100%;
+    display: flex;
+    color: white;
+    padding: 10px 0px;
+    background-color: rgb(33,37,41);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo{
+    width: 50%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logoSpan{
+    padding: 0px 10px;
+    margin: 0px 10px;
+    font-size: 18px;
 }
 
-.App-link {
-  color: #61dafb;
+.other{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.otherSpan{
+    padding: 0px 10px;
+    margin: 0px 10px;
 }
+
+/* Navbar */
+
+
+/* Categories */
+
+.categories{
+    padding: 10px;
+    display: flex;
+}
+
+.wrapper{
+    margin: auto;
+    display: flex;
+    overflow-x: auto;
+    padding: 0% !important;
+}
+
+.wrapper::-webkit-scrollbar{
+    width: none;
+}
+
+.categoriesBtn{
+    color: white;
+    font-size: 13px;
+    margin: 0px 5px;
+    padding: 3px 7px;
+    border-radius: 10px;
+    background-color: rgb(33,37,41);
+}
+
+/* Categories */
+
+/* Current Categories */
+
+.currentCategory{
+    padding: 0px 10px;
+}
+
+.currentCategorySpan{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Current Categories */
+
+/* Footer */
+
+.footer{
+    bottom:0;
+    width:100%;
+    position:absolute;
+    background-color: rgb(33,37,41);
+}
+
+.footerNav{
+    display: flex;
+    color: black;
+    justify-content: space-evenly;
+    background-color:rgb(245, 245, 245);
+}
+
+.footerNavSpan{
+    font-size: 25px;
+}
+
+.footerLogo{
+    color: black;
+}
+.mainFooter{
+    text-align: center;
+}
+
+.mainFooterP{
+    color: white;
+    font-size: 12px;
+    margin: 10px auto;
+}
+
+
+
+
+/* Footer */
+
+
