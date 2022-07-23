@@ -4,6 +4,22 @@
     box-sizing: border-box;
 }
 
+body{
+    height: 100%;
+    background-color: rgb(95,95,95);
+}
+
+/* App */
+
+.app{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* App */
+
 /* Navbar */
 
 .header{
@@ -22,6 +38,7 @@
     padding: 0px 10px;
     margin: 0px 10px;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .other{
@@ -33,6 +50,7 @@
 .otherSpan{
     padding: 0px 10px;
     margin: 0px 10px;
+    cursor: pointer;
 }
 
 /* Navbar */
@@ -43,6 +61,7 @@
 .categories{
     padding: 10px;
     display: flex;
+    background-color: rgb(95,95,95);
 }
 
 .wrapper{
@@ -53,16 +72,24 @@
 }
 
 .wrapper::-webkit-scrollbar{
-    width: none;
+    display: none;
 }
 
 .categoriesBtn{
     color: white;
     font-size: 13px;
+    cursor: pointer;
     margin: 0px 5px;
     padding: 3px 7px;
     border-radius: 10px;
     background-color: rgb(33,37,41);
+}
+
+.active{
+    color: black;
+    font-weight: bold;
+    border: 1px solid white;
+    background-color: white;
 }
 
 /* Categories */
@@ -70,6 +97,7 @@
 /* Current Categories */
 
 .currentCategory{
+    background-color: rgb(95,95,95);
     padding: 0px 10px;
 }
 
@@ -80,6 +108,65 @@
 }
 
 /* Current Categories */
+
+/* NewsContainer */
+
+.newsContainer{
+    height: 75vh;
+    display: flex;
+}
+
+.gridNews{
+    display: flex;
+    padding: 10px;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+.gridNews::-webkit-scrollbar{
+    display: none;
+}
+
+.singleGridNews{
+    width: 100%;
+    display: flex;
+    margin: 10px 0px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.gridImgDiv{
+    width: 20%;
+    background-color: black;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.gridInfoDiv{
+    width: 80%;
+    padding: 10px;
+}
+
+.gridTitle{
+    font-size: 15px;
+}
+
+.gridDesc{
+    font-size: 13px;
+}
+
+.gridBtn{
+    margin-top: 10px;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+}
+
+/* NewsContainer */
 
 /* Footer */
 
@@ -99,10 +186,12 @@
 
 .footerNavSpan{
     font-size: 25px;
+    padding: 10px 0px;
 }
 
 .footerLogo{
     color: black;
+    cursor: pointer;
 }
 .mainFooter{
     text-align: center;
@@ -114,9 +203,73 @@
     margin: 10px auto;
 }
 
-
-
-
 /* Footer */
 
 
+
+@media screen and (max-width: 750px) {
+    .gridImgDiv{
+        width: 40%;
+    }
+    .gridInfoDiv{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .gridNews{
+        display: flex;
+    }
+    
+    .singleGridNews{
+        width: 90%;
+        min-height: 70%;
+        margin: 5px auto;
+        flex-direction: column;
+    }
+
+    .gridImgDiv{
+        width: 100%;
+        min-height: 40%;
+        background-color: black;
+        border-radius: 10px 10px 0px 0px;
+    }
+    
+    .gridInfoDiv{
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .gridTitle{
+        font-size: 13px;
+    }
+    
+    .gridDesc{
+        font-size: 10px;
+    }
+    
+    .gridBtn{
+        margin-top: 5px;
+        font-size: 10px;
+    }
+}
+
+
+
+
+/* .newsContainer{
+    background-color: red;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.gridNews{
+    flex: 1;
+    padding:10px;
+    display: flex;
+    background-color: red;
+} */

@@ -11,6 +11,6 @@ const FooterNav = () => {
         <span className="footerNavSpan"><AiFillSetting className='footerLogo'/></span>
     </div>
   )
-}
+};
 
 export default FooterNav;
