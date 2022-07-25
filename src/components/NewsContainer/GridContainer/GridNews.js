@@ -4,36 +4,13 @@ import SingleGridNews from './SingleGridNews';
 const GridNews = () => {
   return (
     <div className='gridNews'>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
-        <SingleGridNews/>
+      <SingleGridNews/>
+      <SingleGridNews/>
+      <SingleGridNews/>
+      <SingleGridNews/>
+      <SingleGridNews/>
+      <SingleGridNews/>
+      <SingleGridNews/>
     </div>
   )
 }

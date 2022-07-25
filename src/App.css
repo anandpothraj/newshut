@@ -6,7 +6,6 @@
 
 body{
     height: 100%;
-    background-color: rgb(95,95,95);
 }
 
 /* App */
@@ -39,6 +38,7 @@ body{
     margin: 0px 10px;
     font-size: 18px;
     cursor: pointer;
+    color: white;
 }
 
 .other{
@@ -47,10 +47,12 @@ body{
     justify-content: flex-end;
 }
 
-.otherSpan{
+.otherBtn{
     padding: 0px 10px;
     margin: 0px 10px;
     cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 /* Navbar */
@@ -61,7 +63,6 @@ body{
 .categories{
     padding: 10px;
     display: flex;
-    background-color: rgb(95,95,95);
 }
 
 .wrapper{
@@ -82,14 +83,13 @@ body{
     margin: 0px 5px;
     padding: 3px 7px;
     border-radius: 10px;
-    background-color: rgb(33,37,41);
+    border: 1px solid black;
 }
 
-.active{
+.activeCat{
     color: black;
-    font-weight: bold;
-    border: 1px solid white;
-    background-color: white;
+    font-weight: 600;
+    background-color: white !important;
 }
 
 /* Categories */
@@ -97,14 +97,16 @@ body{
 /* Current Categories */
 
 .currentCategory{
-    background-color: rgb(95,95,95);
     padding: 0px 10px;
+    margin-bottom: 10px;
 }
 
 .currentCategorySpan{
-    color: black;
+    color:white;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 5px;
 }
 
 /* Current Categories */
@@ -112,7 +114,6 @@ body{
 /* NewsContainer */
 
 .newsContainer{
-    height: 75vh;
     display: flex;
 }
 
@@ -134,12 +135,10 @@ body{
     display: flex;
     margin: 10px 0px;
     border-radius: 10px;
-    border: 1px solid black;
 }
 
 .gridImgDiv{
     width: 20%;
-    background-color: black;
     border-radius: 10px 0px 0px 10px;
 }
 
@@ -148,22 +147,72 @@ body{
     padding: 10px;
 }
 
-.gridTitle{
+.title{
     font-size: 15px;
 }
 
-.gridDesc{
+.cardTitle{
+    font-size: 15px;
+}
+
+.desc{
     font-size: 13px;
 }
 
-.gridBtn{
+.cardDesc{
+    font-size: 13px;
+}
+
+.readMoreBtn{
     margin-top: 10px;
     color: white;
     font-size: 10px;
     padding: 2px 5px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: black;
+    border: none;
+}
+
+.cardNews{
+    display: flex;
+    height: inherit;
+    flex-direction: column; 
+}
+
+.card{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.cardImgDiv{
+    height: 60%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cardBody{
+    padding: 10px;
+}
+
+.btnDiv{
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.navigationBtnDiv{
+    display: flex;
+    width: inherit;
+    justify-content: space-evenly;
+}
+
+.navigationBtn{
+    padding: 2px 6px;
+    color: white;
+    border-radius: 5px;
+    border: none;
 }
 
 /* NewsContainer */
@@ -186,12 +235,17 @@ body{
 
 .footerNavSpan{
     font-size: 25px;
-    padding: 10px 0px;
+    padding: 5px;
 }
 
 .footerLogo{
-    color: black;
     cursor: pointer;
+}
+
+.activeFooterLogo{
+    background-color: #D0D0D0;
+    border-radius: 20px;
+    padding: 5px;
 }
 .mainFooter{
     text-align: center;
@@ -239,37 +293,27 @@ body{
         width: 100%;
         padding: 10px;
     }
+    .cardImgDiv{
+        height: 40%;
+    }
 }
 
 @media screen and (max-width: 300px) {
-    .gridTitle{
+    .title{
         font-size: 13px;
     }
-    
-    .gridDesc{
+    .cardTitle{
+        font-size: 15px;
+    }
+    .desc{
         font-size: 10px;
     }
+    .cardDesc{
+        font-size: 12px;
+    }
     
-    .gridBtn{
+    .readMoreBtn{
         margin-top: 5px;
         font-size: 10px;
     }
 }
-
-
-
-
-/* .newsContainer{
-    background-color: red;
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.gridNews{
-    flex: 1;
-    padding:10px;
-    display: flex;
-    background-color: red;
-} */

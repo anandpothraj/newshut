@@ -1,18 +1,24 @@
-import React from 'react';
+import { Theme } from '../../Context';
+import React, { useContext } from 'react';
 
 const Categories = () => {
-  
+
+  const { mode, currentCategory, setCurrentCategory } = useContext(Theme);
+
+  const setCategory = (e) => {
+    setCurrentCategory(e.currentTarget.id)
+  }
   return (
     <>
         <div className='categories'>
             <div className="wrapper"> 
-              <button id="general" className='categoriesBtn active'>General</button>
-              <button id="entertainment" className='categoriesBtn'>Entertainment</button>
-              <button id="bussiness" className='categoriesBtn'>Bussiness</button>
-              <button id="health" className='categoriesBtn'>Health</button>
-              <button id="science className='categoriesBtn'" className='categoriesBtn'>Science</button>
-              <button id="sports" className='categoriesBtn'>Sports</button>
-              <button id="technology" className='categoriesBtn'>Technology</button>
+              <button id="General" className={`categoriesBtn ${("General" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>General</button>
+              <button id="Entertainment" className={`categoriesBtn ${("Entertainment" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>Entertainment</button>
+              <button id="Business" className={`categoriesBtn ${("Business" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>Business</button>
+              <button id="Health" className={`categoriesBtn ${("Health" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>Health</button>
+              <button id="Science" className={`categoriesBtn ${("Science" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>Science</button>
+              <button id="Sports" className={`categoriesBtn ${("Sports" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>Sports</button>
+              <button id="Technology" className={`categoriesBtn ${("Technology" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)",border:"1px solid rgb(0,123,255)"}}>Technology</button>
             </div>
          </div>
     </>
