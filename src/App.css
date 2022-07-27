@@ -174,7 +174,9 @@ body{
 }
 
 .cardNews{
+    margin: auto;
     display: flex;
+    width: 50%;
     height: inherit;
     flex-direction: column; 
 }
@@ -216,6 +218,101 @@ body{
 }
 
 /* NewsContainer */
+
+
+/* Browse Categories */
+
+.browseCategories{
+    padding: 10px;
+}
+
+.heading{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.browseHeading{
+    font-size: 15px;
+    margin: 10px 0px;
+}
+
+.categoriesSection{
+    display:flex;
+}
+
+.heading{
+    padding: 10px;
+}
+
+.settings{
+    padding: 10px;
+}
+
+.settingHeading{
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: white;
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 10px;
+
+}
+
+.primaryTheme{
+    margin: 10px 0px;
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.color{
+    margin: 0px 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.customPicker{
+    margin-bottom: 10px;
+}
+
+.customPickerText{
+    margin-bottom: 10px;
+}
+
+.customPickerInfo{
+    width: fit-content;
+    padding:  5px 10px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.customColorPicker{
+    margin: 0px 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.customSpan{
+    margin: auto;
+}
+
+.customColorPicker::-webkit-color-swatch-wrapper{
+    padding: 0;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* Browse Categories */
 
 /* Footer */
 
@@ -261,6 +358,17 @@ body{
 
 
 
+
+
+@media screen and (max-width: 900px) {
+    .cardNews{
+        width: 70%;
+    }
+    .cardImgDiv{
+        height: 50%;
+    }
+}
+
 @media screen and (max-width: 750px) {
     .gridImgDiv{
         width: 40%;
@@ -295,6 +403,9 @@ body{
     }
     .cardImgDiv{
         height: 40%;
+    }
+    .cardNews{
+        width: 90%;
     }
 }
 

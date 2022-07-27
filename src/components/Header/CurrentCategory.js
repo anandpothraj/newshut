@@ -1,13 +1,27 @@
-import React, { useContext } from 'react';
+import React, {useState, useEffect, useContext } from 'react';
 import { Theme } from '../../Context';
+import { useLocation } from 'react-router-dom';
 
 const CurrentCategory = () => {
 
-  const { mode, currentCategory } = useContext(Theme);
+  const location = useLocation();
+  const [ css, setCss ] = useState("");
+  const { mode, currentCategory, customTheme } = useContext(Theme);
+
+  useEffect(() => {
+
+    if(mode === "dark"){
+      setCss("black")
+    }
+    else{
+      setCss("rgb(0,123,255)")
+    }
+    
+  }, [mode,customTheme])
 
   return (
-    <div className='currentCategory' >
-        <span className="currentCategorySpan" style={(mode === "dark")?{backgroundColor:"black"}:{backgroundColor:"rgb(0,123,255)"}}>{currentCategory}</span>
+    <div className='currentCategory' style={(location.pathname === "/")?{}:{display:"none"}}>
+        <span className="currentCategorySpan" style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>{currentCategory}</span>
     </div>
   )
 }

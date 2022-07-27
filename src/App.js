@@ -8,14 +8,13 @@ import NewsContainer from './components/NewsContainer/NewsContainer';
 import Categories from './components/Categories/Categories';
 import Settings from './components/Settings/Setting';
 
-
 const App = () => {
 
   const { mode } = useContext(Theme);
   
   return (
     <Router>
-      <div className='app' style={(mode === "dark")?{backgroundColor:"#E0E0E0"}:{backgroundColor:"white"}}>
+      <div className='app' style={(mode === "dark")?{backgroundColor:"#D0D0D0"}:{backgroundColor:"white"}}>
         <Header/>
         <Routes>
           <Route path='/' element={<NewsContainer/>} exact/>

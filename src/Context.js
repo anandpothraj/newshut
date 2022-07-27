@@ -6,12 +6,13 @@ const Context = ({children}) => {
     
     const existingMode = localStorage.getItem('mode');
     const existingView = localStorage.getItem('view');
+    const [ customTheme, setCustomTheme ] = useState("#ffffff");
     const [ currentCategory , setCurrentCategory ] = useState("General");
     const [ mode , setMode ] = useState(existingMode?existingMode:"dark");
     const [ view , setView ] = useState(existingView?existingView:"grid");
 
     return (
-        <Theme.Provider value={{mode , setMode, view, setView, currentCategory, setCurrentCategory }}>{children}</Theme.Provider>
+        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory}}>{children}</Theme.Provider>
     )
 }
 
