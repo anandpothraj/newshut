@@ -1,6 +1,6 @@
 import { Theme } from '../../Context';
 import { Link } from "react-router-dom";
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { IoIosPhotos } from "react-icons/io";
 import { BsFillSunFill } from "react-icons/bs";
 import { BsFillMoonStarsFill } from "react-icons/bs";
@@ -8,19 +8,7 @@ import { MdOutlineHorizontalSplit } from "react-icons/md";
 
 const Navbar = () => {
 
-  const [ css, setCss ] = useState("");
-  const { mode, setMode, view, setView, customTheme } = useContext(Theme);
-
-  useEffect(() => {
-
-    if(mode === "dark"){
-      setCss("black")
-    }
-    else{
-      setCss("rgb(0,123,255)")
-    }
-    
-  }, [mode,customTheme])
+  const { mode, setMode, view, setView, customTheme, css } = useContext(Theme);
   
   return (
     <div className='header' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>

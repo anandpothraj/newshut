@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { AiFillSetting } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
@@ -7,20 +7,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 const FooterNav = () => {
 
-  const [ css, setCss ] = useState("");
-  const { mode, customTheme } = useContext(Theme);
+  const { css, customTheme } = useContext(Theme);
   const location = useLocation();
 
-  useEffect(() => {
-
-    if(mode === "dark"){
-      setCss("black")
-    }
-    else{
-      setCss("rgb(0,123,255)")
-    }
-    
-  }, [mode,customTheme])
 
   return (
     <div className='footerNav'>

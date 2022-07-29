@@ -234,10 +234,46 @@ body{
 .browseHeading{
     font-size: 15px;
     margin: 10px 0px;
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 10px;
 }
 
 .categoriesSection{
-    display:flex;
+    height: fit-content;
+    margin-top: 10px;
+}
+
+.categoriesDiv{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.singleCategory{
+    height: 10vh;
+    display: flex;
+    min-width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: blue;
+}
+
+.categoryContent{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.categoryTitle{
+    margin-bottom: 5px;
+}
+
+.categoryLogo{
+    font-size: 20px;
 }
 
 .heading{
@@ -409,6 +445,12 @@ body{
     }
 }
 
+@media screen and (max-width: 400px) {
+    .categoryTitle {
+        font-size: 13px;
+    }
+}
+
 @media screen and (max-width: 300px) {
     .title{
         font-size: 13px;
@@ -426,5 +468,8 @@ body{
     .readMoreBtn{
         margin-top: 5px;
         font-size: 10px;
+    }
+    .categoryTitle {
+        font-size: 11px;
     }
 }

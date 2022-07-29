@@ -1,32 +1,21 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Theme } from '../../Context';
 
 const Categories = () => {
 
   const location = useLocation();
-  const [ css, setCss ] = useState("");
-  const { mode, currentCategory, setCurrentCategory, customTheme } = useContext(Theme);
+  const { currentCategory, setCurrentCategory, customTheme, css } = useContext(Theme);
 
   const setCategory = (e) => {
     setCurrentCategory(e.currentTarget.id)
   }
 
-  useEffect(() => {
-
-    if(mode === "dark"){
-      setCss("black")
-    }
-    else{
-      setCss("rgb(0,123,255)")
-    }
-    
-  }, [mode,customTheme])
-
   return (
     <>
         <div className='categories' style={(location.pathname === "/")?{}:{display:"none"}}>
             <div className="wrapper"> 
+              <button id="Feed" className={`categoriesBtn ${("Feed" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Feed</button>
               <button id="General" className={`categoriesBtn ${("General" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>General</button>
               <button id="Entertainment" className={`categoriesBtn ${("Entertainment" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Entertainment</button>
               <button id="Business" className={`categoriesBtn ${("Business" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Business</button>

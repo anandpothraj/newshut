@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Theme } from '../../Context';
 
 const Setting = () => {
 
-  const [ css, setCss ] = useState("");
-  const { mode,customTheme, setCustomTheme } = useContext(Theme);
+  const {customTheme, setCustomTheme, css } = useContext(Theme);
 
   const primaryColors = [
     "#f4717f",
@@ -15,17 +14,6 @@ const Setting = () => {
   ];
 
 
-  useEffect(() => {
-
-    if(mode === "dark"){
-      setCss("black")
-    }
-    else{
-      setCss("rgb(0,123,255)")
-    }
-    
-  }, [mode,customTheme])
-
   return (
     <div className='settings'>
       <h6 className='settingHeading' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Settings</h6>
@@ -34,14 +22,14 @@ const Setting = () => {
         <p>PLEASE SELECT A THEME</p>
         <div className="primaryTheme" style={(customTheme !== "#ffffff")?{border:`1px solid ${customTheme}`}:{border:`1px solid ${css}`}}>
           {primaryColors.map((color, index) => (
-              <div style={{backgroundColor:color}} className="color" key={index} onClick={()=>{setCustomTheme(color)}}/>
+              <div style={{backgroundColor:color}} className="color" key={index} onClick={()=>{setCustomTheme(color);localStorage.setItem('customTheme',color)}}/>
           ))}
         </div>
       </div>
       <div className="customPicker">
         <p className='customPickerText'>SELECT CUSTOM THEME COLOR</p>
         <div className="customPickerInfo" style={(customTheme !== "#ffffff")?{border:`1px solid ${customTheme}`}:{border:`1px solid ${css}`}}>
-          <input className='customColorPicker' type="color" value={customTheme} onChange={(e)=>{setCustomTheme(e.target.value)}}/><span className='customSpan'>{customTheme}</span>
+          <input className='customColorPicker' type="color" value={customTheme} onChange={(e)=>{setCustomTheme(e.target.value);localStorage.setItem('customTheme',customTheme)}}/><span className='customSpan'>{customTheme}</span>
         </div>
       </div>
     </div>
