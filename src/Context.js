@@ -5,6 +5,8 @@ export const Theme = createContext();
 const Context = ({children}) => {
     
     const [ css, setCss ] = useState("");
+    const [ myFeed, setMyFeed ] = useState("");
+    const [ userName, setUserName ] = useState("");
     const existingMode = localStorage.getItem('mode');
     const existingView = localStorage.getItem('view');
     const existingCustomTheme = localStorage.getItem('customTheme');
@@ -25,7 +27,7 @@ const Context = ({children}) => {
       }, [mode,customTheme])
 
     return (
-        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss}}>{children}</Theme.Provider>
+        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userName, setUserName, myFeed, setMyFeed }}>{children}</Theme.Provider>
     )
 }
 

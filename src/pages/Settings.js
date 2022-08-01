@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Theme } from '../../Context';
+import { Theme } from '../Context';
 
 const Setting = () => {
 

@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
-import { Theme } from '../../Context';
+import { Theme } from '../Context';
 import { FaTheaterMasks, FaHeartbeat } from 'react-icons/fa';
 import { MdOutlineBusinessCenter, MdOutlineBiotech, MdSportsVolleyball } from 'react-icons/md';
 import { TbBrandMeta } from 'react-icons/tb';
 import { GiMaterialsScience } from 'react-icons/gi';
 import { BsNewspaper } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 const Categories = () => {
 
-  const { customTheme, css } = useContext(Theme);
+  const navigate = useNavigate();
+  const { customTheme, css, setCurrentCategory } = useContext(Theme);
 
   const category1 = [
     {
@@ -45,6 +47,16 @@ const Categories = () => {
     }
   ]
 
+  const browseCategory = (type) => {
+    if(type === "My Feed"){
+      setCurrentCategory("Feed");
+    }
+    else{
+      setCurrentCategory(type);
+    }
+    navigate("/")
+  }
+
   return (
     <div className='browseCategories'>
       <div className="heading">
@@ -57,12 +69,12 @@ const Categories = () => {
         <div className="categoriesDiv">
           {
             category1.map((cat,index) => (
-              <div className="singleCategory" style={(customTheme !== "#ffffff")?{backgroundColor:customTheme,color:'white'}:{backgroundColor:css,color:"white"}} key={index}>
+              <button className="singleCategory" style={(customTheme !== "#ffffff")?{backgroundColor:customTheme,color:'white'}:{backgroundColor:css,color:"white"}} key={index} onClick={()=>{browseCategory(cat.name)}}>
                 <div className="categoryContent">
                 <span className='categoryTitle'>{cat.name}</span>
                 <span className='categoryLogo'>{cat.logo}</span>
                 </div>
-              </div>
+              </button>
             ))
           }
         </div>

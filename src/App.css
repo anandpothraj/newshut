@@ -142,6 +142,12 @@ body{
     border-radius: 10px 0px 0px 10px;
 }
 
+.gridImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .gridInfoDiv{
     width: 80%;
     padding: 10px;
@@ -255,12 +261,27 @@ body{
 .singleCategory{
     height: 10vh;
     display: flex;
-    min-width: 30%;
+    min-width: 20%;
     text-align: center;
     border-radius: 10px;
     margin: 10px;
-    background-color: blue;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
+
+.selectedSingleCategory{
+    height: 10vh;
+    display: flex;
+    min-width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px;
+    cursor: pointer;
+}
+
+
 
 .categoryContent{
     display: flex;
@@ -392,6 +413,27 @@ body{
 
 /* Footer */
 
+/* loader */
+.loader {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+/* loader */
+
 
 
 
@@ -415,10 +457,15 @@ body{
 }
 
 @media screen and (max-width: 550px) {
+    .newsContainer{
+        height: 70vh !important;
+    }
     .gridNews{
         display: flex;
     }
-    
+    .singleCategory{
+        min-width: 30%;
+    }
     .singleGridNews{
         width: 90%;
         min-height: 70%;

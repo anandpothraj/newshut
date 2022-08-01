@@ -4,9 +4,11 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import NewsContainer from './components/NewsContainer/NewsContainer';
-import Categories from './components/Categories/Categories';
-import Settings from './components/Settings/Setting';
+import Home from './pages/Home';
+import Categories from './pages/Categories';
+import Settings from './pages/Settings';
+import GetStarted from './pages/GetStarted';
+
 
 const App = () => {
 
@@ -17,7 +19,8 @@ const App = () => {
       <div className='app' style={(mode === "dark")?{backgroundColor:"#D0D0D0"}:{backgroundColor:"white"}}>
         <Header/>
         <Routes>
-          <Route path='/' element={<NewsContainer/>} exact/>
+          <Route path='/' element={<Home/>} exact/>
+          <Route path='/getstarted' element={<GetStarted/>} exact/>
           <Route path='/categories' element={<Categories/>} exact/>
           <Route path='/settings' element={<Settings/>} exact/>
         </Routes>
