@@ -5,11 +5,10 @@ export const Theme = createContext();
 const Context = ({children}) => {
     
     const [ css, setCss ] = useState("");
-    const [ myFeed, setMyFeed ] = useState("");
-    const [ userName, setUserName ] = useState("");
     const existingMode = localStorage.getItem('mode');
     const existingView = localStorage.getItem('view');
     const existingCustomTheme = localStorage.getItem('customTheme');
+    const userInfo = localStorage.getItem('userInfo');
     const [ currentCategory , setCurrentCategory ] = useState("Feed");
     const [ mode , setMode ] = useState(existingMode?existingMode:"dark");
     const [ view , setView ] = useState(existingView?existingView:"grid");
@@ -18,16 +17,16 @@ const Context = ({children}) => {
     useEffect(() => {
 
         if(mode === "dark"){
-          setCss("black")
+          setCss("black");
         }
         else{
-          setCss("rgb(0,123,255)")
+          setCss("rgb(0,123,255)");
         }
         
       }, [mode,customTheme])
 
     return (
-        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userName, setUserName, myFeed, setMyFeed }}>{children}</Theme.Provider>
+        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userInfo }}>{children}</Theme.Provider>
     )
 }
 

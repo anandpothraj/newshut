@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Theme } from '../Context';
+import { useNavigate } from 'react-router-dom';
 
 const Setting = () => {
 
-  const {customTheme, setCustomTheme, css } = useContext(Theme);
+  const navigate = useNavigate();
+  const {customTheme, setCustomTheme, css, userInfo } = useContext(Theme);
 
   const primaryColors = [
     "#f4717f",
@@ -13,6 +15,11 @@ const Setting = () => {
     "#b1ff05",
   ];
 
+  useEffect(() => {
+    if(!userInfo){
+      navigate("/getstarted");
+    }
+  })
 
   return (
     <div className='settings'>

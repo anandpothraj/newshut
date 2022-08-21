@@ -281,8 +281,6 @@ body{
     cursor: pointer;
 }
 
-
-
 .categoryContent{
     display: flex;
     flex-direction: column;
@@ -365,11 +363,26 @@ body{
     border-radius: 5px;
 }
 
-
-
-
-
 /* Browse Categories */
+
+
+/* getStarted */
+
+.getStarted{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.inputName{
+    margin: auto;
+    width: 40%;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* getStarted */
 
 /* Footer */
 
@@ -458,7 +471,7 @@ body{
 
 @media screen and (max-width: 550px) {
     .newsContainer{
-        height: 70vh !important;
+        height: 72vh !important;
     }
     .gridNews{
         display: flex;

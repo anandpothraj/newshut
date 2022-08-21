@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Theme } from '../Context';
 import { FaTheaterMasks, FaHeartbeat } from 'react-icons/fa';
 import { MdOutlineBusinessCenter, MdOutlineBiotech, MdSportsVolleyball } from 'react-icons/md';
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const Categories = () => {
 
   const navigate = useNavigate();
-  const { customTheme, css, setCurrentCategory } = useContext(Theme);
+  const { customTheme, css, setCurrentCategory, userInfo } = useContext(Theme);
 
   const category1 = [
     {
@@ -56,6 +56,12 @@ const Categories = () => {
     }
     navigate("/")
   }
+
+  useEffect(() => {
+    if(!userInfo){
+      navigate("/getstarted");
+    }
+  })
 
   return (
     <div className='browseCategories'>
