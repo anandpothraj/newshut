@@ -1,21 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Theme } from '../../Context';
+import axios from 'axios';
 
 const Categories = () => {
 
   const location = useLocation();
-  const { currentCategory, setCurrentCategory, customTheme, css } = useContext(Theme);
+  const { currentCategory, setCurrentCategory, customTheme, css, setNews, setIndex} = useContext(Theme);
+
+  const fetchNews =  async (category) => {
+    const { data } = await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
+    setNews(data.articles);
+  };
 
   const setCategory = (e) => {
-    setCurrentCategory(e.currentTarget.id)
+    setCurrentCategory(e.currentTarget.id);
+    setIndex(0);
+    let fetchCat = (e.currentTarget.id).toLowerCase();
+    fetchNews(fetchCat);
   }
+
+  useEffect(() => {
+    fetchNews(currentCategory.toLowerCase());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <>
         <div className='categories' style={(location.pathname === "/")?{}:{display:"none"}}>
             <div className="wrapper"> 
-              <button id="Feed" className={`categoriesBtn ${("Feed" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Feed</button> 
+              {/* <button id="Feed" className={`categoriesBtn ${("Feed" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Feed</button>  */}
               <button id="General" className={`categoriesBtn ${("General" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>General</button>
               <button id="Entertainment" className={`categoriesBtn ${("Entertainment" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Entertainment</button>
               <button id="Business" className={`categoriesBtn ${("Business" === currentCategory)? "activeCat":""}`} onClick={setCategory} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Business</button>

@@ -16,8 +16,8 @@ const SingleGridNews = ( { singleNews } ) => {
           <img src={img?img:defaultImg} className='gridImg' alt="gridImg" />
         </div>
         <div className="gridInfoDiv">
-          <h5 className='title' style={(customTheme !== "#ffffff")?{color:customTheme}:{color:css}}>{title?title:"No Title"}</h5>
-          <p className="desc">{description?description:"No description"}</p>
+          <h5 className='title' style={(customTheme !== "#ffffff")?{color:customTheme}:{color:css}}>{title?title.slice(0,120):"No Title"}</h5>
+          <p className="desc">{description?description.slice(0,120):"No description"}</p>
           <button className='readMoreBtn' 
             style={(customTheme !== "#ffffff")?
             {backgroundColor:customTheme,border:`1px solid ${customTheme}`}

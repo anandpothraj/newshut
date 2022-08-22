@@ -1,35 +1,50 @@
 import React, { useContext } from 'react';
 import { Theme } from '../../../Context';
+import SingleCardContainer from './SingleCardContainer';
 
 const CardNews = () => {
 
-  const { css, customTheme } = useContext(Theme);
+  const { css, customTheme, news, index, setIndex} = useContext(Theme);
+  
+  const previous = () => {
+    if(index === 0){
+      setIndex(0);
+    }
+    else{
+      setIndex(index - 1);
+    }
+  }
+
+  const next = () => {
+    if(index === news.length - 1){
+      setIndex(0);
+    }
+    else{
+      setIndex(index + 1);
+    }
+  }
+
+  // console.log(news[0])
 
   return (
-    <>
+    <> 
       <div className="cardNews">
-        <div className="card" style={(customTheme !== "#ffffff")?{border:`1px solid ${customTheme}`}:{border:`1px solid ${css}`}}>
-          <div className="cardImgDiv" style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>
-          </div>
-          <div className="cardBody">
-            <h5 className="cardTitle" style={(customTheme !== "#ffffff")?{color:customTheme}:{color:css}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellat.</h5>
-            <p className="cardDesc">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, maiores voluptas
-              iste illo facere laudantium eos atque voluptatum sit repellendus dolor vitae, quia eveniet ut, quos 
-              voluptatem quaerat accusantium? Id unde aperiam porro voluptate possimus quibusdam nisi dolor ducimus.
-            </p>
-            <button className='readMoreBtn' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Read More.</button>
-          </div>
-        </div>
-        <div className="btnDiv">
+        {
+          (news && news.length > 0) ?
+          <SingleCardContainer singleNews={news[index]}/>
+          :
+          <div className="loader" style={(customTheme !== "#ffffff")?{border:`5px solid ${customTheme}`,borderBottomColor: "transparent"}:{border:`5px solid ${css}`,borderBottomVolor: "transparent"}}></div>
+        }
+          <div className="btnDiv">
           <div className="navigationBtnDiv">
-            <button className='navigationBtn' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Previous</button>
-            <button className='navigationBtn' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>Next</button>
+            <button className='navigationBtn' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}} onClick={previous}>Previous</button>
+            <button className='navigationBtn' style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}} onClick={next}>Next</button>
           </div>
         </div>
-    </div>
-    </>
-  )
-}
+      </div>
+      </>
+    )
+  }
+  
+  export default CardNews;
 
-export default CardNews;

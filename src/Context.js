@@ -9,11 +9,13 @@ const Context = ({children}) => {
     const existingView = localStorage.getItem('view');
     const existingCustomTheme = localStorage.getItem('customTheme');
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-    const [ currentCategory , setCurrentCategory ] = useState("Feed");
+    const [ currentCategory , setCurrentCategory ] = useState("General");
     const [ mode , setMode ] = useState(existingMode?existingMode:"dark");
     const [ view , setView ] = useState(existingView?existingView:"grid");
     const [ customTheme, setCustomTheme ] = useState(existingCustomTheme?existingCustomTheme:"#ffffff");
     const [ online, setOnline ] = useState(userInfo?true:false);
+    const [ news, setNews ] = useState([]);
+    const [ index, setIndex ] = useState(0);
 
     useEffect(() => {
 
@@ -27,7 +29,7 @@ const Context = ({children}) => {
       }, [mode,customTheme])
 
     return (
-        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userInfo, online, setOnline }}>{children}</Theme.Provider>
+        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userInfo, online, setOnline, news, setNews, index, setIndex }}>{children}</Theme.Provider>
     )
 }
 

@@ -6,12 +6,19 @@ import { TbBrandMeta } from 'react-icons/tb';
 import { GiMaterialsScience } from 'react-icons/gi';
 import { BsNewspaper } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Categories = () => {
 
   const navigate = useNavigate();
-  const { customTheme, css, setCurrentCategory } = useContext(Theme);
+  const { customTheme, css, setCurrentCategory, setNews, setIndex} = useContext(Theme);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+  const fetchNews =  async (category) => {
+    const { data } = await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
+    setNews(data.articles);
+  };
+
 
   const category1 = [
     {
@@ -54,6 +61,9 @@ const Categories = () => {
     }
     else{
       setCurrentCategory(type);
+      setIndex(0);
+      let fetchCat = (type).toLowerCase();
+      fetchNews(fetchCat);
     }
     navigate("/")
   }

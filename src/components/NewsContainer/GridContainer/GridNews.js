@@ -1,22 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Theme } from '../../../Context';
 import SingleGridNews from './SingleGridNews';
-import axios from 'axios';
 
 const GridNews = () => {
-
-  const [ news, setNews ] = useState([]);
-  const { css, customTheme } = useContext(Theme);
-
-  const fetchNews = async () => {
-    const { data } = await axios.get('https://saurav.tech/NewsAPI//top-headlines/category/technology/in.json');
-    setNews(data.articles);
-  };
-
-  useEffect(() => {
-    fetchNews()
-  }, [])
   
+  const { css, customTheme, news } = useContext(Theme);
 
   return (
     <div className='gridNews'>

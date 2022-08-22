@@ -14,4 +14,4 @@ const CurrentCategory = () => {
   )
 }
 
-export default CurrentCategory
+export default CurrentCategory;
