@@ -8,11 +8,12 @@ const Context = ({children}) => {
     const existingMode = localStorage.getItem('mode');
     const existingView = localStorage.getItem('view');
     const existingCustomTheme = localStorage.getItem('customTheme');
-    const userInfo = localStorage.getItem('userInfo');
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const [ currentCategory , setCurrentCategory ] = useState("Feed");
     const [ mode , setMode ] = useState(existingMode?existingMode:"dark");
     const [ view , setView ] = useState(existingView?existingView:"grid");
     const [ customTheme, setCustomTheme ] = useState(existingCustomTheme?existingCustomTheme:"#ffffff");
+    const [ online, setOnline ] = useState(userInfo?true:false);
 
     useEffect(() => {
 
@@ -26,7 +27,7 @@ const Context = ({children}) => {
       }, [mode,customTheme])
 
     return (
-        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userInfo }}>{children}</Theme.Provider>
+        <Theme.Provider value={{customTheme, setCustomTheme,mode , setMode, view, setView, currentCategory, setCurrentCategory, css, setCss, userInfo, online, setOnline }}>{children}</Theme.Provider>
     )
 }
 

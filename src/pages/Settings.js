@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const Setting = () => {
 
   const navigate = useNavigate();
-  const {customTheme, setCustomTheme, css, userInfo } = useContext(Theme);
+  const {customTheme, setCustomTheme, css, setOnline } = useContext(Theme);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const primaryColors = [
     "#f4717f",
@@ -15,8 +16,19 @@ const Setting = () => {
     "#b1ff05",
   ];
 
+  const logout = () => {
+    if (window.confirm("Are you sure you want LOGOUT?")) {
+      localStorage.removeItem("userInfo");
+      localStorage.removeItem("mode");
+      localStorage.removeItem("customTheme");
+      localStorage.removeItem("view");
+      setOnline(false);
+      navigate('/getstarted');
+    }
+  }
+
   useEffect(() => {
-    if(!userInfo){
+    if(userInfo === null){
       navigate("/getstarted");
     }
   })
@@ -39,6 +51,7 @@ const Setting = () => {
           <input className='customColorPicker' type="color" value={customTheme} onChange={(e)=>{setCustomTheme(e.target.value);localStorage.setItem('customTheme',customTheme)}}/><span className='customSpan'>{customTheme}</span>
         </div>
       </div>
+      <button className='logoutBtn' onClick={logout}>logout</button>
     </div>
   )
 }

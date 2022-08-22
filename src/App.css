@@ -179,6 +179,11 @@ body{
     border: none;
 }
 
+.link{
+    color: white;
+    text-decoration: none;
+}
+
 .cardNews{
     margin: auto;
     display: flex;
@@ -313,6 +318,19 @@ body{
 
 }
 
+.logoutBtn{
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+
+.logoutBtn:hover{
+    background-color: white;
+    color: black;
+}
+
 .primaryTheme{
     margin: 10px 0px;
     display: flex;
@@ -382,6 +400,18 @@ body{
     text-align: center;
 }
 
+.enterBtnDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.enterBtn{
+    font-size: 40px;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    cursor: pointer;
+}
+
 /* getStarted */
 
 /* Footer */
@@ -448,9 +478,6 @@ body{
 /* loader */
 
 
-
-
-
 @media screen and (max-width: 900px) {
     .cardNews{
         width: 70%;
@@ -467,11 +494,14 @@ body{
     .gridInfoDiv{
         width: 60%;
     }
+    .inputName {
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 550px) {
     .newsContainer{
-        height: 72vh !important;
+        height: 70vh !important;
     }
     .gridNews{
         display: flex;
@@ -502,6 +532,12 @@ body{
     }
     .cardNews{
         width: 90%;
+    }
+    .getStarted{
+        margin-top: 50px;
+    }
+    .enterBtn{
+        margin-top: 5vh;
     }
 }
 

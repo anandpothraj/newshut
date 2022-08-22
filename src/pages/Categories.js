@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router-dom';
 const Categories = () => {
 
   const navigate = useNavigate();
-  const { customTheme, css, setCurrentCategory, userInfo } = useContext(Theme);
+  const { customTheme, css, setCurrentCategory } = useContext(Theme);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const category1 = [
     {
@@ -58,7 +59,7 @@ const Categories = () => {
   }
 
   useEffect(() => {
-    if(!userInfo){
+    if(userInfo === null){
       navigate("/getstarted");
     }
   })

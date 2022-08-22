@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Categories from './pages/Categories';
 import Settings from './pages/Settings';
 import GetStarted from './pages/GetStarted';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {

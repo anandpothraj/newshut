@@ -7,14 +7,14 @@ import { Link, useLocation } from 'react-router-dom';
 
 const FooterNav = () => {
 
-  const { css, customTheme, userInfo } = useContext(Theme);
+  const { css, customTheme } = useContext(Theme);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const location = useLocation();
-
 
   return (
       <>
       {
-      (userInfo) ?
+      (userInfo && userInfo.loggedIn === true ) ?
         <div className='footerNav'>
           <Link to="/">
             <span className="footerNavSpan"><FaHome  className={`footerLogo ${(location.pathname === "/")? "activeFooterLogo":""}`} style={(customTheme !== "#ffffff")?{color:customTheme}:{color:css}}/></span>

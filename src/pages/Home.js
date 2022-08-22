@@ -7,13 +7,14 @@ import CardNews from '../components/NewsContainer/CardContainer/CardNews';
 const NewsContainer = () => {
 
   const navigate = useNavigate();
-  const { view, userInfo } = useContext(Theme);
+  const { view } = useContext(Theme);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   useEffect(() => {
-    if(!userInfo){
+    if(userInfo === null){
       navigate("/getstarted");
     }
-  })
+  },[userInfo,navigate]);
 
   return (
     <div className='newsContainer' style={(view==="grid")?{height:"75vh"}:{height:"68vh"}}>{(view === "grid") ? <GridNews/> : <CardNews/>}</div>
