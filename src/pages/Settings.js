@@ -24,6 +24,7 @@ const Setting = () => {
       localStorage.removeItem("view");
       setOnline(false);
       navigate('/getstarted');
+      window.location.reload();
     }
   }
 
@@ -51,7 +52,7 @@ const Setting = () => {
           <input className='customColorPicker' type="color" value={customTheme} onChange={(e)=>{setCustomTheme(e.target.value);localStorage.setItem('customTheme',customTheme)}}/><span className='customSpan'>{customTheme}</span>
         </div>
       </div>
-      <button className='logoutBtn' onClick={logout}>logout</button>
+      <button className='logoutBtn' onClick={logout} style={(customTheme !== "#ffffff")?{backgroundColor:customTheme}:{backgroundColor:css}}>logout</button>
     </div>
   )
 }

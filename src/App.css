@@ -325,6 +325,7 @@ body{
     color: white;
     border-radius: 10px; 
     cursor: pointer;
+    border: none;
 }
 
 .logoutBtn:hover{
