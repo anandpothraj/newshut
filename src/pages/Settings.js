@@ -23,7 +23,7 @@ const Setting = () => {
       localStorage.removeItem("customTheme");
       localStorage.removeItem("view");
       setOnline(false);
-      navigate('/getstarted');
+      navigate('/');
       window.location.reload();
     }
   }
