@@ -6,15 +6,21 @@ import axios from 'axios';
 const Categories = () => {
 
   const location = useLocation();
-  const { currentCategory, setCurrentCategory, customTheme, css, setNews, setIndex, setShowNews} = useContext(Theme);
+  let newArr= [];
+  const { currentCategory, setCurrentCategory, customTheme, css, setNews, setIndex, setShowNews, customFeeds } = useContext(Theme);
   
-
   const fetchNews =  async (category) => {
     const { data } = await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
     setNews(data.articles);
   };
 
   const getCustomizedFeeds = async () => {
+    for(let i=0; i < customFeeds.length ; i++){
+      let category = customFeeds[i].toLowerCase();
+      const { data } = await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
+      newArr.push(data.articles);
+    }
+    console.log(newArr);
   }
 
   const setCategory = (e) => {
@@ -25,7 +31,7 @@ const Categories = () => {
       getCustomizedFeeds();
       setTimeout(() => {
         setShowNews(true);
-      }, 100);
+      }, 200);
     }
     else{
       setCurrentCategory(e.currentTarget.id);
@@ -34,9 +40,11 @@ const Categories = () => {
       fetchNews(fetchCat);
       setTimeout(() => {
         setShowNews(true);
-      }, 100);
+      }, 200);
     }
   }
+
+  
 
   useEffect(() => {
     if(currentCategory === "Feed"){
