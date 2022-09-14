@@ -211,7 +211,7 @@ body{
 
 .btnDiv{
     width: 100%;
-    margin: auto;
+    margin: 15px auto;
     display: flex;
 }
 
@@ -326,11 +326,6 @@ body{
     border-radius: 10px; 
     cursor: pointer;
     border: none;
-}
-
-.logoutBtn:hover{
-    background-color: white;
-    color: black;
 }
 
 .primaryTheme{

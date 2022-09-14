@@ -4,7 +4,7 @@ import SingleCardContainer from './SingleCardContainer';
 
 const CardNews = () => {
 
-  const { css, customTheme, news, index, setIndex} = useContext(Theme);
+  const { css, customTheme, news, index, setIndex, showNews} = useContext(Theme);
   
   const previous = () => {
     if(index === 0){
@@ -27,13 +27,13 @@ const CardNews = () => {
   // console.log(news[0])
 
   return (
-    <> 
-      <div className="cardNews">
+    <>
+      <div className="cardNews"style={showNews ? {display:"flex"}:{display:"none"}}>
         {
           (news && news.length > 0) ?
           <SingleCardContainer singleNews={news[index]}/>
           :
-          <div className="loader" style={(customTheme !== "#ffffff")?{border:`5px solid ${customTheme}`,borderBottomColor: "transparent"}:{border:`5px solid ${css}`,borderBottomVolor: "transparent"}}></div>
+          <div className="loader" style={(customTheme !== "#ffffff")?{border:`5px solid ${customTheme}`,borderBottomColor: "transparent"}:{border:`5px solid ${css}`,borderBottomColor: "transparent"}}></div>
         }
           <div className="btnDiv">
           <div className="navigationBtnDiv">
@@ -42,6 +42,7 @@ const CardNews = () => {
           </div>
         </div>
       </div>
+      <div className="loader" style={!showNews?{display:"block",border:`5px solid ${customTheme}`,borderBottomColor: "transparent"}:{display:"none"}}></div>
       </>
     )
   }
