@@ -10,10 +10,10 @@ const Setting = () => {
 
   const primaryColors = [
     "#f4717f",
-    "#21c392",
-    "#f3954f",
     "#8845f4",
-    "#b1ff05",
+    "#3CAF4F",
+    "#A8A300",
+    "#F47615"
   ];
 
   const logout = () => {

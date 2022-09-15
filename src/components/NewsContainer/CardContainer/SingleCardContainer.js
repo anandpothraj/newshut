@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Theme } from '../../../Context';
-import defaultImg from '../../../defaultImg.png';
+import defaultImg from '../../../defaultImg.jpg';
 
 const CardNews = ({singleNews}) => {
 

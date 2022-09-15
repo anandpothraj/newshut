@@ -8,6 +8,12 @@ body{
     height: 100%;
 }
 
+.scrollTop{
+    top: 0px;
+    left: 0px; 
+    behavior: 'smooth';
+}
+
 /* App */
 
 .app{
@@ -124,6 +130,7 @@ body{
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
+    scroll-behavior: smooth;
 }
 
 .gridNews::-webkit-scrollbar{

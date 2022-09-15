@@ -5,10 +5,21 @@ import axios from 'axios';
 
 const Categories = () => {
 
+  let arr = [];
   const location = useLocation();
-  let newArr= [];
   const { currentCategory, setCurrentCategory, customTheme, css, setNews, setIndex, setShowNews, customFeeds } = useContext(Theme);
   
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+
   const fetchNews =  async (category) => {
     const { data } = await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
     setNews(data.articles);
@@ -18,20 +29,20 @@ const Categories = () => {
     for(let i=0; i < customFeeds.length ; i++){
       let category = customFeeds[i].toLowerCase();
       const { data } = await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
-      newArr.push(data.articles);
+      arr.push(...data.articles);
     }
-    console.log(newArr);
+    shuffle(arr);
+    setNews(arr);
   }
 
   const setCategory = (e) => {
+    setNews([]);
     setShowNews(false);
     if(e.currentTarget.id === "Feed"){
       setCurrentCategory(e.currentTarget.id);
       setIndex(0);
       getCustomizedFeeds();
-      setTimeout(() => {
-        setShowNews(true);
-      }, 200);
+      setShowNews(true);
     }
     else{
       setCurrentCategory(e.currentTarget.id);
@@ -44,15 +55,13 @@ const Categories = () => {
     }
   }
 
-  
-
   useEffect(() => {
     if(currentCategory === "Feed"){
       getCustomizedFeeds();
     }
     else{
       fetchNews(currentCategory.toLowerCase());
-    }
+    } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 

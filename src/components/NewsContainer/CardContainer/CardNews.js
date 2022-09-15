@@ -24,8 +24,6 @@ const CardNews = () => {
     }
   }
 
-  // console.log(news[0])
-
   return (
     <>
       <div className="cardNews"style={showNews ? {display:"flex"}:{display:"none"}}>
