@@ -9,7 +9,7 @@ const Context = ({children}) => {
     const existingView = localStorage.getItem('view');
     const existingCustomTheme = localStorage.getItem('customTheme');
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-    const [ currentCategory , setCurrentCategory ] = useState("Feed");
+    const [ currentCategory , setCurrentCategory ] = useState("General");
     const [ mode , setMode ] = useState(existingMode?existingMode:"dark");
     const [ view , setView ] = useState(existingView?existingView:"grid");
     const [ customTheme, setCustomTheme ] = useState(existingCustomTheme?existingCustomTheme:"#000000");
