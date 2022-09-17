@@ -95,7 +95,7 @@ useEffect(() => {
       <ToastContainer/>
       <input type="text" placeholder='Enter Your Name'  className="inputName" value={userName} onChange={(e)=>{setUserName(e.target.value)}}/>
       <div className="categoriesSection">
-        <h3 style={{textAlign:"center"}}>Select your preference.</h3>
+        <h3 style={{fontSize:"17px",textTransform:"capitalize",textAlign:"center"}}>Select atleast 3 preferences.</h3>
         <div className="categoriesDiv"> 
           {
             category1.map((cat,index) => (
@@ -110,7 +110,7 @@ useEffect(() => {
         </div>
       </div>
       <div className="enterBtnDiv">
-        <span onClick={next}><BsFillArrowRightCircleFill className='enterBtn' title='enter'/></span>
+        <span onClick={next}><BsFillArrowRightCircleFill className='enterBtn' title='enter'style={categoriesArr.length >= 2 ? {cursor:"pointer"}:{cursor:"not-allowed"}}/></span>
       </div>
     </div>
   )

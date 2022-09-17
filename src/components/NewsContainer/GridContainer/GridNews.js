@@ -1,18 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Theme } from '../../../Context';
 import SingleGridNews from './SingleGridNews';
 
 const GridNews = () => {
   
-  const { css, customTheme, news, showNews } = useContext(Theme);
+  const scrollToRef = useRef();
+
+  const { css, customTheme, news, showNews, currentCategory } = useContext(Theme);
+
+  const scrollTop = () => {
+    console.log("running")
+    scrollToRef.current.scrollIntoView();
+  }
+
+  useEffect(()=> {
+    scrollTop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[currentCategory])
 
   return (
     <>
-      <div className='gridNews' style={showNews ? {display:"block"}:{display:"none"}}>
+      <div className='gridNews' style={showNews ? {display:"block"}:{display:"none"}} ref={scrollToRef}>
         {
           (news.length > 0)?(
             news.map((singleNews, index) => (
-              <SingleGridNews key={index} singleNews={singleNews}/>
+              <SingleGridNews key={index} singleNews={singleNews} />
             ))
           )
           :
