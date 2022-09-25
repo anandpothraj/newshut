@@ -2,6 +2,8 @@ Hello all, welcome to my git repo!!
 
 React Single Page Fully responsive News App with Recommended feeds system!!!
 
+![newshut](https://user-images.githubusercontent.com/75027034/192147910-cc3c8186-5d0b-4ad5-9f05-c963ef97809b.png)
+
 This project is a simple React, API based app which is best for beginners, If you are a beginner, this will be very helpful.
 It consist of Basic React features like React components. routing and API integration. 
 If you don't know the concept of basic Javascript API integration and AJAX then please learn that before and after completing that Please continue with this project.
